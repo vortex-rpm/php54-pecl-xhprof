@@ -14,7 +14,7 @@ Summary: Function-level hierarchical profiler for PHP
 Name: %{php_base}-pecl-xhprof
 
 Version: 0.%{commit}
-Release: 1.vortex%{?dist}
+Release: 2.vortex%{?dist}
 License: PHP
 Group: Development/Languages
 Vendor: Vortex RPM
@@ -64,7 +64,7 @@ cd extension
 %{__cat} > %{buildroot}%{_sysconfdir}/php.d/%{pecl_name}.ini << 'EOF'
 ; Enable %{pecl_name} extension module
 extension=%{pecl_name}.so
-
+xhprof.output_dir=/tmp/xhprof
 EOF
 
 
@@ -86,5 +86,8 @@ fi
 
 
 %changelog
+* Mon Nov 02 2012 Ilya A. Otyutskiy <sharp@thesharp.ru> - 0.c90e966.2.vortex
+- Initial packaging.
+
 * Mon Nov 01 2012 Ilya A. Otyutskiy <sharp@thesharp.ru> - 0.c90e966.1.vortex
 - Initial packaging.
